@@ -33,6 +33,28 @@ app.post('/tasks', (req,res) => {
         if(err) return res.status(500).json({error: err.message});
         res.status(201).json({id: results.insertId, title, description, completed: false});
     });
+});
 
+//PUT
+app.put('/tasks/:id', (req, res) => {
+    const {title, description, completed} = req.body;
+    db.query('UPDATE tasks SET title = ?, description = ?, completed = ? WHERE id = ?', [title, description, completed, req.params.id], (err,results) =>{
+        if(err) return res.status(500).json({error: err.message});
+        if(results.affectedRows === 0) return res.status(404).json ({error: 'Tarefa não encontrada'});
+        res.json({id: req.params.id, title, description, completed});
+    });
+});
 
+//DELETE
+app.delete('/tasks/:id', (req, res) => {
+    db.query('DELETE FROM tasks WHERE id = ?', [req.params.id], (err,results) => {
+        if(err) return res.status(500).json({error: err.message});
+        if(results.affectedRows === 0) return res.status(404).json ({error: 'Tarefa não encontrada'});
+        res.status(204).send();
+    });
+});
+
+//LISTEN
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });

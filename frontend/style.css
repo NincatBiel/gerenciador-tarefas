@@ -41,7 +41,7 @@ form{
     gap: 20px;
 }
 
-#task-add input{
+#task-form input{
     box-sizing: border-box;
     font-size: 16px;
     border: 1px solid #d6d6d6;
@@ -51,14 +51,14 @@ form{
     padding: 5px;
 }
 
-#task-add input[type='text']:focus{
+#task-form input[type='text']:focus{
     outline: none;
     border-color: #63c07a;
     box-shadow: 0 6px 18px rgba(99, 192, 122, 0.12);
 }
 
 /*========================= Botão =========================*/
-#task-add button{
+#task-form button{
     display: inline-block;
     border: 1px solid #696969;
     border-radius: 6px;
@@ -74,14 +74,14 @@ form{
     
 }
 
-#task-add button:hover{
+#task-form button:hover{
     border-color: slateblue;
     transform: translateY(-2px);
     box-shadow: 0 12px 28px rgba(47,173,91,0.20);
     opacity: 0.98;
 }
 
-#task-add button:active{
+#task-form button:active{
     border-color: slateblue;
     transform: translateY(0);
     box-shadow: 0 12px 28px rgba(47,173,91,0.20);

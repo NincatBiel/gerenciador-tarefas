@@ -1,7 +1,7 @@
-const apiUrl = 'http://localhost:3000/task';
+const apiUrl = 'http://localhost:3000/tasks';
 
-const form = document.getElementById('task-add');
-const list = document.getElementById('task-list');
+const form = document.getElementById('task-form');
+const taskList = document.getElementById('task-list');
 
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
@@ -93,6 +93,7 @@ async function deleteTask(id) {
 
         loadTasks();
 
+        document.getElementById('')
         
     }catch (err){
         alert('Erro ao atualizar tarefa: ' + err.message);
